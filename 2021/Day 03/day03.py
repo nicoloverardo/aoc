@@ -9,7 +9,7 @@ df = pd.DataFrame(lines, columns=["bit" + str(i) for i in range(len(lines[0]))])
 # Part 1
 df1 = df.T.copy(deep=True)
 df1["gamma"] = df1.apply(lambda x: x.mode(), axis=1)
-df1["epsilon"] = df1.gamma.replace({"0":"1", "1":"0"})
+df1["epsilon"] = df1.gamma.replace({"0": "1", "1": "0"})
 
 print(int(df1.gamma.sum(), base=2) * int(df1.epsilon.sum(), base=2))
 
