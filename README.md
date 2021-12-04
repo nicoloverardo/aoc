@@ -13,8 +13,11 @@ This repo contains my proposed solutions for the [Advent of Code](https://advent
 │   ├── Day 02
 │   │   ├── day02.py
 │   │   └── input.txt
-│   └── Day 03
-│       ├── day03.py
+│   ├── Day 03
+│   │   ├── day03.py
+│   │   └── input.txt
+│   └── Day 04
+│       ├── day04.py
 │       └── input.txt
 │
 ├── .gitignore
