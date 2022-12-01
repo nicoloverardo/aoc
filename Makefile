@@ -1,18 +1,18 @@
-.PHONY: create activate install clean
+.PHONY: all create install clean
 
-VENV_NAME?=venv
-PYTHON_PATH?=${VENV_NAME}/bin/python
+VENV_NAME := venv
+PYTHON_PATH := ${VENV_NAME}/bin/python
 
-create:
+
+$(VENV_NAME)/bin/activate:
 	python -m pip install virtualenv
-	python -m venv venv
-	make activate
-
-activate: $(VENV_NAME)/bin/activate
-
-install: activate
+	python -m venv $(VENV_NAME)
 	${PYTHON_PATH} -m pip install --upgrade pip setuptools wheel
 	${PYTHON_PATH} -m pip install -r requirements.txt
+
+
+create: $(VENV_NAME)/bin/activate
+all: $(VENV_NAME)/bin/activate
 
 clean:
 	rm -rf __pycache__
