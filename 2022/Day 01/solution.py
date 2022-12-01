@@ -4,9 +4,8 @@ from pathlib import Path
 from typing import Union, List
 
 
-def elves_sorter(f_path: Union[str, Path] = "input.txt") -> List[int]:
-    """Reads the input and gets the total calories for
-    each elf sorted in descending order.
+def read_data(f_path: Union[str, Path] = Path("input.txt")) -> List[str]:
+    """Reads the input to list.
 
     Parameters
     ----------
@@ -15,16 +14,33 @@ def elves_sorter(f_path: Union[str, Path] = "input.txt") -> List[int]:
 
     Returns
     -------
+    List[str]
+        The calories of each elf, including blanks.
+    """
+
+    with open(Path(f_path), encoding="utf8") as f_stream:
+        return [item.replace("\n", "").strip() for item in f_stream.readlines()]
+
+
+def elves_sorter(data: List[str]) -> List[int]:
+    """Reads the input and gets the total calories for
+    each elf sorted in descending order.
+
+    Parameters
+    ----------
+    data : List[str]
+        The loaded input.
+
+    Returns
+    -------
     List[int]
         The calories of each elf.
     """
 
-    with open(f_path, encoding="utf8") as f_stream:
-        content = [item.replace("\n", "").strip() for item in f_stream.readlines()]
-
     elves = []
     elf = 0
-    for item in content:
+
+    for item in data:
         if item != "":
             elf += int(item)
             continue
@@ -73,9 +89,10 @@ def solution_2(**kwargs) -> int:
 
 
 if __name__ == "__main__":
-    TEST_INPUT_PATH = "test_input.txt"
+    input_data = read_data()
+    test_input_data = read_data("test_input.txt")
 
-    print("Testing part 1:", solution_1(f_path=TEST_INPUT_PATH), "- Expected: 24000")
-    print("Testing part 2:", solution_2(f_path=TEST_INPUT_PATH), "- Expected: 45000")
-    print("Solution part 1:", solution_1())
-    print("Solution part 2:", solution_2())
+    print("Testing part 1:", solution_1(data=test_input_data), "- Expected: 24000")
+    print("Testing part 2:", solution_2(data=test_input_data), "- Expected: 45000")
+    print("Solution part 1:", solution_1(data=input_data))
+    print("Solution part 2:", solution_2(data=input_data))
