@@ -20,7 +20,8 @@ If on Windows, you will need to create manually the virtual env and then install
 
 ```bash
 python -m venv venv
-source venv/bin/activate
+venv\Scripts\activate
+python -m pip install --upgrade pip wheel setuptools
 python -m pip install -r requirements.txt
 ```
 
