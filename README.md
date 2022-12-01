@@ -16,10 +16,20 @@ This repo contains my proposed solutions for the [Advent of Code](https://advent
 │   ├── Day 03
 │   │   ├── day03.py
 │   │   └── input.txt
-│   └── Day 04
-│       ├── day04.py
-│       └── input.txt
+│   ...
 │
+├── 2022
+│   ├── Day 01
+│   │   ├── day01.py
+│   │   └── input.txt
+│   ├── Day 02
+│   │   ├── day02.py
+│   │   └── input.txt
+│   ├── Day 03
+│   │   ├── day03.py
+│   │   └── input.txt
+│   ...
+|
 ├── .gitignore
 └── README.md
 ```
