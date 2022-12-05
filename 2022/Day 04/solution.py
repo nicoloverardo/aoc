@@ -1,6 +1,5 @@
 """Day 4"""
 
-import string
 from pathlib import Path
 from typing import Union, List, Tuple, Callable
 
